@@ -1,5 +1,6 @@
 package com.example.example_mod;
 
+import com.example.example_mod.setup.SetupEntities;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -10,9 +11,12 @@ public class ExampleMod implements ModInitializer {
 	// It is considered best practice to use your mod name as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("Example Mod");
+    public static final String MOD_ID = "example";
 
-	@Override
+    @Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
+
+		SetupEntities.registerEntities();
 	}
 }
